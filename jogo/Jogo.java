@@ -124,6 +124,7 @@ public class Jogo {
                         case 0:
                             vidaHeroi.receberDano(vidaBoss.getSemAcao());
                             System.out.println("Você não recebeu danos!");
+                            tentativasDeAtaque++;
                             break;
                         case 1:
                             vidaHeroi.receberDano(vidaBoss.getTerceiroPoder());
@@ -145,6 +146,11 @@ public class Jogo {
                             {
                                 System.out.println(" O BOSS DECOROU O SEU DANO!");
                                 vidaHeroi.receberDano(vidaBoss.getPoder());
+                            } else if (tentativasDeAtaque > 2) {
+                                System.out.println("Cuidado o boss pode decorar os seus danos!);
+                                        vidaHeroi.receberDano(vidaBoss.getPoder());
+                            }else{
+                                vidaHeroi.receberDano(vidaBoss.getSemAcao());
                             }
                             break;
                         default:
