@@ -10,7 +10,8 @@ public class Jogo {
         Heroi vidaHeroi = new Heroi();
         Boss vidaBoss = new Boss();
         int tentativasDeCurar = 0;
-        while (vidaBoss.getVida() > 0 &&  vidaHeroi.getVida() > 0 ){
+        int tentativasDeAtaque = 0;
+        while (vidaBoss.getVida() > 0 && vidaHeroi.getVida() > 0) {
 
 
             String Boss = "       Vida: " + vidaBoss.getVida() + "         \n" +
@@ -29,21 +30,22 @@ public class Jogo {
 
 
             String menu = """ 
-                Sua Vida é de: """ + vidaHeroi.getVida() + """
-                \n
-                Escolha a opção de Ação:
-                (Lembre-se, a cada escolha sua você sofre alguma consequência pelo Boss)
-                (As consequências são aleatorias.)
-                1 - Curar + 500
-                2 - Atacar com espada (Dano 250 )
-                3 - Atacar com raio (Dano 250 )
-                4 - Atacar com fogo (Dano 500 )
-                """;
+                    Sua Vida é de: """ + vidaHeroi.getVida() + """
+                    \n
+                    Escolha a opção de Ação:
+                    (Lembre-se, a cada escolha sua você sofre alguma consequência pelo Boss)
+                    (As consequências são aleatorias.)
+                    1 - Curar + 500
+                    2 - Atacar com espada (Dano 250 )
+                    3 - Atacar com raio (Dano 250 )
+                    4 - Atacar com fogo (Dano 500 )
+                    """;
             System.out.println(Boss);
             System.out.println(menu);
 
             Scanner teclado = new Scanner(System.in);
             int acaoDigitada = teclado.nextInt();
+
             switch (acaoDigitada) {
                 case 1:
 
@@ -62,11 +64,11 @@ public class Jogo {
                     switch (numeroSorteado) {
                         case 0:
                             vidaHeroi.receberDano(vidaBoss.getTerceiroPoder());
-                            System.out.println("Você também recebeu danos especiais!" );
+                            System.out.println("Você também recebeu danos especiais!");
                             break;
                         case 1:
                             vidaHeroi.receberDano(vidaBoss.getTerceiroPoder());
-                            System.out.println("Você também recebeu danos especiais!" );
+                            System.out.println("Você também recebeu danos especiais!");
                             break;
                         case 2:
                             vidaHeroi.receberDano(vidaBoss.getSegundoPoder());
@@ -74,7 +76,7 @@ public class Jogo {
                             break;
                         case 3:
                             vidaHeroi.receberDano(vidaBoss.getPoder());
-                            System.out.println("Você também recebeu danos!" );
+                            System.out.println("Você também recebeu danos!");
                             break;
                         default:
                             vidaHeroi.receberDano(vidaBoss.getSemAcao());
@@ -91,7 +93,7 @@ public class Jogo {
                     switch (numeroSegundoSorteado) {
                         case 0:
                             vidaHeroi.receberDano(vidaBoss.getSegundoPoder());
-                            System.out.println("Você também recebeu danos!" );
+                            System.out.println("Você também recebeu danos!");
                             break;
                         case 1:
                             vidaHeroi.receberDano(vidaBoss.getTerceiroPoder());
@@ -113,9 +115,11 @@ public class Jogo {
 
                     break;
                 case 4:
+
+
                     vidaBoss.receberDano(vidaHeroi.getTerceiroPoder());
                     System.out.println("Você atacou com fogo!");
-                    int numeroTerceiroSorteado = (int) (Math.random() * 4);
+                    int numeroTerceiroSorteado = (int) (Math.random() * 5);
                     switch (numeroTerceiroSorteado) {
                         case 0:
                             vidaHeroi.receberDano(vidaBoss.getSemAcao());
@@ -123,15 +127,25 @@ public class Jogo {
                             break;
                         case 1:
                             vidaHeroi.receberDano(vidaBoss.getTerceiroPoder());
-                            System.out.println("Você também recebeu danos especiais!" );
+                            System.out.println("Você também recebeu danos especiais!");
+                            tentativasDeAtaque++;
                             break;
                         case 2:
                             vidaHeroi.receberDano(vidaBoss.getSemAcao());
-                            System.out.println("Você não recebeu danos!" );
+                            System.out.println("Você não recebeu danos!");
+                            tentativasDeAtaque++;
                             break;
                         case 3:
                             vidaHeroi.receberDano(vidaBoss.getPoder());
-                            System.out.println("Você não recebeu danos!" );
+                            System.out.println("Você não recebeu danos!");
+                            tentativasDeAtaque++;
+                            break;
+                        case 4:
+                            if(tentativasDeAtaque > 3)
+                            {
+                                System.out.println(" O BOSS DECOROU O SEU DANO!");
+                                vidaHeroi.receberDano(vidaBoss.getPoder());
+                            }
                             break;
                         default:
                             vidaHeroi.receberDano(vidaBoss.getSemAcao());
@@ -144,17 +158,26 @@ public class Jogo {
                             "sofrerá consequencias!");
                     vidaHeroi.receberDano(vidaBoss.getPoder());
             }
+
         }
-        if(vidaBoss.getVida() < 0 ){
+
+        if(vidaBoss.getVida() <= 0 ){
             System.out.println("""
                 Parabéns Fim de jogo vc venceu!!!!!
                 """);
         }
 
-        if (vidaHeroi.getVida() < 0 ){
-            System.out.println("Fim de jogo, Tente Novamente.");
+        if (vidaHeroi.getVida() <= 0 ){
             System.out.println("O Boss sobreviveu com: " + vidaBoss.getVida() + " de vida!");
+            System.out.println("Fim de jogo, Tente Novamente.");
+
         }
+
+if (
+        vidaHeroi.getVida() <= 0 && vidaBoss.getVida() <= 0
+){
+    System.out.println("Você matou o boss, mas custou a sua propria vida ");
+}
 
     }
 }
