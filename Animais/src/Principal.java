@@ -127,5 +127,8 @@ gatoAcao.getAcao();
             }
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9ef75b0fe591b7404a7cf4ae34ece4e82ce8014d
 }

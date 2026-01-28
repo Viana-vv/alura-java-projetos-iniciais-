@@ -3,10 +3,15 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Animais/Animais.iml" filepath="$PROJECT_DIR$/Animais/Animais.iml" />
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/Desafio-1/DesafioCalc/DesafioCalc.iml" filepath="$PROJECT_DIR$/Desafio-1/DesafioCalc/DesafioCalc.iml" />
       <module fileurl="file://$PROJECT_DIR$/Desafio-1/DesafioCalcCOPILOT/DesafioCalcCOPILOT.iml" filepath="$PROJECT_DIR$/Desafio-1/DesafioCalcCOPILOT/DesafioCalcCOPILOT.iml" />
       <module fileurl="file://$PROJECT_DIR$/SimulacaoBanco/SimulacaoBanco.iml" filepath="$PROJECT_DIR$/SimulacaoBanco/SimulacaoBanco.iml" />
       <module fileurl="file://$PROJECT_DIR$/alura-java-projetos-iniciais--main.iml" filepath="$PROJECT_DIR$/alura-java-projetos-iniciais--main.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/SimulacaoBanco/SimulacaoBanco.iml" filepath="$PROJECT_DIR$/SimulacaoBanco/SimulacaoBanco.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alura-java-projetos-iniciais-.iml" filepath="$PROJECT_DIR$/alura-java-projetos-iniciais-.iml" />
+>>>>>>> 9ef75b0fe591b7404a7cf4ae34ece4e82ce8014d
     </modules>
   </component>
 </project>
