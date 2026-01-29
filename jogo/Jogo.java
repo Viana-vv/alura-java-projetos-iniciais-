@@ -171,19 +171,16 @@ public class Jogo {
             System.out.println("""
                 Parabéns Fim de jogo vc venceu!!!!!
                 """);
-        }
-
-        if (vidaHeroi.getVida() <= 0 ){
+        } else if (vidaHeroi.getVida() <= 0 ){
             System.out.println("O Boss sobreviveu com: " + vidaBoss.getVida() + " de vida!");
             System.out.println("Fim de jogo, Tente Novamente.");
 
-        }
-
-if (
+        } else if (
         vidaHeroi.getVida() <= 0 && vidaBoss.getVida() <= 0
 ){
     System.out.println("Você matou o boss, mas custou a sua propria vida ");
-}
-
+}else{
+            System.out.println("Erro no fim do jogo");
+        }
     }
 }
