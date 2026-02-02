@@ -56,7 +56,4 @@ String digitouSim = sair.next();
 if (digitouSim.equalsIgnoreCase("sim")){
     System.out.println("Fechando calculadora....");
     fim++;
-}
-        }
-    }
-}
+}}}}
